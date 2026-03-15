@@ -26,7 +26,7 @@ export function LoginDialog({ open, onClose, onSuccess }: LoginDialogProps) {
       setEmail('');
       setPassword('');
     } else {
-      setError('Invalid email or password. Use test@test.com / password2026');
+      setError('Invalid email or password.');
     }
   };
 
@@ -69,7 +69,7 @@ export function LoginDialog({ open, onClose, onSuccess }: LoginDialogProps) {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="test@test.com"
                 required
-                className="w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-3 py-2.5 text-sm text-(--app-text) focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                className="input focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
               />
             </div>
             <div>
@@ -83,7 +83,7 @@ export function LoginDialog({ open, onClose, onSuccess }: LoginDialogProps) {
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
                 required
-                className="w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-3 py-2.5 text-sm text-(--app-text) focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                className="input focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
               />
             </div>
             {error && (
