@@ -2,12 +2,15 @@ import { useState, FormEvent, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { Plus, MapPin, Building2, X } from 'lucide-react';
+import toast from 'react-hot-toast';
 import { getPlaces, createPlace } from '@/api/placesApi';
 import { useBreadcrumbs } from '@/context/BreadcrumbContext';
+import { useIsAdmin } from '@/hooks/useIsAdmin';
 import { getApiErrorMessage } from '@/utils/errors';
 import type { CreatePlaceDto } from '@/types';
 
 export function DashboardPage() {
+  const isAdmin = useIsAdmin();
   const [addPlaceOpen, setAddPlaceOpen] = useState(false);
   const [form, setForm] = useState<CreatePlaceDto>({ name: '', location: '' });
   const [formError, setFormError] = useState<string | null>(null);
@@ -34,6 +37,10 @@ export function DashboardPage() {
       setAddPlaceOpen(false);
       setForm({ name: '', location: '' });
       setFormError(null);
+      toast.success('Place created successfully');
+    },
+    onError: (err) => {
+      toast.error(getApiErrorMessage(err));
     },
   });
 
@@ -75,7 +82,7 @@ export function DashboardPage() {
               <Link
                 key={place.id}
                 to={`/places/${place.id}`}
-                className="block p-6 rounded-xl bg-(--app-card) border border-gray-300 dark:border-gray-500 shadow-sm hover:shadow-md hover:border-primary transition-all cursor-pointer text-(--app-text)"
+                className="block p-6 rounded-xl bg-(--app-card) border border-gray-400 dark:border-gray-500 shadow-sm hover:shadow-md hover:border-primary transition-all cursor-pointer text-(--app-text)"
               >
                 <div className="flex flex-col items-center text-center">
                   <div className="w-16 h-16 rounded-full bg-primary/15 flex items-center justify-center mb-4">
@@ -89,26 +96,27 @@ export function DashboardPage() {
                 </div>
               </Link>
             ))}
-            {/* Add place card */}
-            <button
-              type="button"
-              onClick={() => setAddPlaceOpen(true)}
-              className="flex flex-col items-center justify-center min-h-[200px] p-6 rounded-xl border-2 border-dashed border-gray-300 dark:border-gray-500 bg-(--app-card) hover:border-primary hover:opacity-90 transition-all cursor-pointer text-(--app-text)"
-            >
-              <div className="w-16 h-16 rounded-full bg-primary/15 flex items-center justify-center mb-4">
-                <Plus className="w-8 h-8 text-primary" strokeWidth={1} />
-              </div>
-              <span className="font-semibold text-(--app-text)">Add Place</span>
-              <span className="text-sm text-(--app-text) opacity-80 mt-1">Create a new place</span>
-            </button>
+            {isAdmin && (
+              <button
+                type="button"
+                onClick={() => setAddPlaceOpen(true)}
+                className="flex flex-col items-center justify-center min-h-[200px] p-6 rounded-xl border-2 border-dashed border-gray-400 dark:border-gray-500 bg-(--app-card) hover:border-primary hover:opacity-90 transition-all cursor-pointer text-(--app-text)"
+              >
+                <div className="w-16 h-16 rounded-full bg-primary/15 flex items-center justify-center mb-4">
+                  <Plus className="w-8 h-8 text-primary" strokeWidth={1} />
+                </div>
+                <span className="font-semibold text-(--app-text)">Add Place</span>
+                <span className="text-sm text-(--app-text) opacity-80 mt-1">Create a new place</span>
+              </button>
+            )}
           </div>
         )}
       </div>
 
-      {/* Add place modal */}
-      {addPlaceOpen && (
+      {/* Add place modal (admin only) */}
+      {isAdmin && addPlaceOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70">
-          <div className="bg-(--app-card) rounded-xl p-6 max-w-md w-full border border-gray-300 dark:border-gray-500 relative">
+          <div className="bg-(--app-card) rounded-xl p-6 max-w-md w-full border border-gray-400 dark:border-gray-500 relative">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-xl font-semibold">Add Place</h2>
               <button
