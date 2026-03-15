@@ -111,18 +111,18 @@
 
   /* Neutrals - Light */
   --color-bg-primary: #ffffff;
-  --color-bg-secondary: #f1efe8;
-  --color-bg-tertiary: #fafaf9;
-  --color-bg-hover: #e8e6dd;
+  --color-bg-secondary: #eaeef2;
+  --color-bg-tertiary: #f4f6f8;
+  --color-bg-hover: #dfe4e9;
 
   --color-text-primary: #1a1a1a;
   --color-text-secondary: #666666;
   --color-text-tertiary: #999999;
   --color-text-disabled: #cccccc;
 
-  --color-border-primary: rgba(0, 0, 0, 0.15);
-  --color-border-secondary: rgba(0, 0, 0, 0.08);
-  --color-border-tertiary: rgba(0, 0, 0, 0.05);
+  --color-border-primary: #9ca3af;
+  --color-border-secondary: #c4c8cc;
+  --color-border-tertiary: #e0e2e6;
 
   /* Semantic */
   --color-success: #1d9e75;
@@ -411,6 +411,31 @@ h6, .text-h6 {
 
 .input::placeholder {
   color: var(--color-text-tertiary);
+}
+
+/* Table headers - light blue in light theme, distinct from app background */
+.table-header-row {
+  background-color: var(--color-blue-50);
+  border-bottom: 1px solid var(--color-border-primary);
+}
+.table-header-row th {
+  color: var(--color-text-primary);
+  font-weight: 600;
+}
+
+.dark .table-header-row {
+  background-color: var(--color-bg-hover);
+}
+
+/* WebKit: time/date input picker icon - theme-aware */
+input[type="time"]::-webkit-calendar-picker-indicator,
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0.7;
+}
+
+.dark input[type="time"]::-webkit-calendar-picker-indicator,
+.dark input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
 }
 
 /* Status badges (IoT) */
