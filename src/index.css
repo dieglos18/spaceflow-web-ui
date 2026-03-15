@@ -12,11 +12,20 @@
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  --app-bg: #f9fafb;
+  --app-card: #ffffff;
+  --app-text: #111827;
+}
+
+.dark {
+  --app-bg: #111827;
+  --app-card: #1f2937;
+  --app-text: #f9fafb;
 }
 
 body {
   margin: 0;
   min-height: 100vh;
-  background-color: #f9fafb;
-  color: #111827;
+  background-color: var(--app-bg);
+  color: var(--app-text);
 }
