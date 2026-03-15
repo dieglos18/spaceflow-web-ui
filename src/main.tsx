@@ -3,12 +3,14 @@ import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import './index.css';
+import 'react-tooltip/dist/react-tooltip.css';
 import App from './App';
 import { BreadcrumbProvider } from './context/BreadcrumbContext';
 import { HomePage } from './pages/HomePage';
 import { DashboardPage } from './pages/DashboardPage';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { PlaceDetailPage } from './pages/PlaceDetailPage';
+import { AdminLoginPage } from './pages/AdminLoginPage';
 import { TelemetryDetailPage } from './pages/TelemetryDetailPage';
 import { TelemetryPage } from './pages/TelemetryPage';
 
@@ -25,6 +27,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <HomePage /> },
       { path: 'dashboard', element: <DashboardPage /> },
+      { path: 'admin-login', element: <AdminLoginPage /> },
       { path: 'places/:id', element: <PlaceDetailPage /> },
       { path: 'telemetry', element: <TelemetryPage /> },
       { path: 'telemetry/:id', element: <TelemetryDetailPage /> },

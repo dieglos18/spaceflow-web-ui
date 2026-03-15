@@ -25,9 +25,12 @@ export function DashboardHeader() {
 
   const handleLogout = () => {
     localStorage.removeItem('auth_token');
+    localStorage.removeItem('spaceflow_admin');
     setMenuOpen(false);
     navigate('/');
   };
+
+  const isAdmin = typeof window !== 'undefined' && localStorage.getItem('spaceflow_admin') === 'true';
 
   return (
     <header className="fixed top-0 left-0 right-0 z-20 w-full flex items-center justify-between px-4 py-3 bg-(--app-card) text-(--app-text)">
@@ -37,7 +40,12 @@ export function DashboardHeader() {
           alt=""
           className="h-8 w-8 object-contain"
         />
-        <h1 className="text-xl font-semibold text-(--app-text)">{APP_TITLE}</h1>
+        <h1 className="text-xl font-semibold text-(--app-text) flex items-baseline gap-1.5">
+          {APP_TITLE}
+          {isAdmin && (
+            <span className="text-xs font-normal opacity-80 text-(--app-text)">admin</span>
+          )}
+        </h1>
       </div>
 
       <div className="relative" ref={menuRef}>
@@ -54,9 +62,9 @@ export function DashboardHeader() {
         {menuOpen && (
           <div
             role="menu"
-            className="absolute right-0 top-full mt-1 min-w-[180px] rounded-lg shadow-lg bg-(--app-card) border border-gray-300 dark:border-gray-500 py-2"
+            className="absolute right-0 top-full mt-1 min-w-[180px] rounded-lg shadow-lg bg-(--app-card) border border-gray-400 dark:border-gray-500 py-2"
           >
-            <div className="flex items-center justify-between gap-4 px-4 py-2 border-b border-gray-300 dark:border-gray-500">
+            <div className="flex items-center justify-between gap-4 px-4 py-2 border-b border-gray-400 dark:border-gray-500">
               <span className="text-sm font-medium text-(--app-text)">Theme</span>
               <button
                 type="button"
