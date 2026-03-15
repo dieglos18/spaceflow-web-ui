@@ -9,7 +9,7 @@ export function NotFoundPage() {
       <p className="text-gray-600 mt-2">Page not found</p>
       <Link
         to="/"
-        className="mt-6 text-indigo-600 hover:text-indigo-800 font-medium"
+        className="mt-6 text-primary hover:opacity-90 font-medium cursor-pointer"
       >
         Go home
       </Link>

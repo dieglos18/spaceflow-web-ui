@@ -8,10 +8,7 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={toggleTheme}
-      className="rounded-full p-3 transition-colors text-white hover:opacity-90"
-      style={{
-        backgroundColor: isDark ? '#374151' : '#4F46E5',
-      }}
+      className={`rounded-full p-3 transition-colors text-white hover:opacity-90 cursor-pointer ${isDark ? 'bg-surface' : 'bg-primary'}`}
       aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
     >
       {isDark ? (

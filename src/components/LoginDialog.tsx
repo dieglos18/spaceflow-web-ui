@@ -35,74 +35,69 @@ export function LoginDialog({ open, onClose, onSuccess }: LoginDialogProps) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       <div
-        className="absolute inset-0 bg-black/50"
+        className="absolute inset-0 bg-black/70 cursor-pointer"
         onClick={onClose}
         aria-hidden
       />
       <div
-        className="relative w-full max-w-md rounded-lg p-6 shadow-lg bg-(--app-card) text-(--app-text)"
+        className="relative w-full max-w-lg min-h-[420px] rounded-xl p-8 shadow-xl bg-(--app-card) text-(--app-text) flex flex-col"
       >
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-xl font-semibold text-(--app-text)">
-            Login
-          </h2>
-          <button
-            type="button"
-            onClick={onClose}
-            className="rounded p-1 hover:opacity-80 transition-opacity text-(--app-text)"
-            aria-label="Close"
-          >
-            <X className="w-5 h-5" />
-          </button>
-        </div>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label htmlFor="login-email" className="block text-sm font-medium mb-1 text-(--app-text)">
-              Email
-            </label>
-            <input
-              id="login-email"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="test@test.com"
-              required
-              className="w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-3 py-2 text-sm text-(--app-text) focus:border-[#4F46E5] focus:outline-none focus:ring-1 focus:ring-[#4F46E5]"
-            />
+        <button
+          type="button"
+          onClick={onClose}
+          className="absolute top-4 right-4 rounded p-1.5 hover:opacity-80 transition-opacity text-(--app-text) cursor-pointer"
+          aria-label="Close"
+        >
+          <X className="w-5 h-5" />
+        </button>
+
+        <h2 className="text-2xl font-semibold text-(--app-text) mb-2">
+          Welcome
+        </h2>
+        <div className="h-px bg-gray-200 dark:bg-gray-600 mb-8" aria-hidden />
+
+        <form onSubmit={handleSubmit} className="flex flex-col flex-1 min-h-0">
+          <div className="space-y-5">
+            <div>
+              <label htmlFor="login-email" className="block text-sm font-medium mb-1.5 text-(--app-text)">
+                Email
+              </label>
+              <input
+                id="login-email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="test@test.com"
+                required
+                className="w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-3 py-2.5 text-sm text-(--app-text) focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+              />
+            </div>
+            <div>
+              <label htmlFor="login-password" className="block text-sm font-medium mb-1.5 text-(--app-text)">
+                Password
+              </label>
+              <input
+                id="login-password"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="••••••••"
+                required
+                className="w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-3 py-2.5 text-sm text-(--app-text) focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+              />
+            </div>
+            {error && (
+              <p className="text-sm text-red-600" role="alert">
+                {error}
+              </p>
+            )}
           </div>
-          <div>
-            <label htmlFor="login-password" className="block text-sm font-medium mb-1 text-(--app-text)">
-              Password
-            </label>
-            <input
-              id="login-password"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="••••••••"
-              required
-              className="w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-3 py-2 text-sm text-(--app-text) focus:border-[#4F46E5] focus:outline-none focus:ring-1 focus:ring-[#4F46E5]"
-            />
-          </div>
-          {error && (
-            <p className="text-sm text-red-600" role="alert">
-              {error}
-            </p>
-          )}
-          <div className="flex gap-3 pt-2">
-            <button
-              type="button"
-              onClick={onClose}
-              className="flex-1 rounded-md border border-gray-300 dark:border-gray-600 px-4 py-2 text-sm font-medium text-(--app-text) transition-colors hover:opacity-80"
-            >
-              Cancel
-            </button>
+          <div className="mt-auto pt-6">
             <button
               type="submit"
-              className="flex-1 rounded-md px-4 py-2 text-sm font-medium text-white transition-opacity hover:opacity-90"
-              style={{ backgroundColor: '#4F46E5' }}
+              className="w-full rounded-full px-4 py-3 text-sm font-medium text-white bg-primary transition-opacity hover:opacity-90 cursor-pointer"
             >
-              Sign in
+              Login
             </button>
           </div>
         </form>
