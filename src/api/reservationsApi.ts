@@ -1,5 +1,5 @@
 import { apiClient } from './apiClient';
-import type { Reservation, PaginatedResponse, CreateReservationDto } from '@/types';
+import type { Reservation, PaginatedResponse, CreateReservationDto, UpdateReservationDto } from '@/types';
 
 const DEFAULT_PAGE = 1;
 const DEFAULT_SIZE = 10;
@@ -16,6 +16,11 @@ export async function getReservations(
 
 export async function createReservation(body: CreateReservationDto): Promise<Reservation> {
   const { data } = await apiClient.post<Reservation>('/reservations', body);
+  return data;
+}
+
+export async function updateReservation(id: string, body: UpdateReservationDto): Promise<Reservation> {
+  const { data } = await apiClient.put<Reservation>(`/reservations/${id}`, body);
   return data;
 }
 
