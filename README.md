@@ -26,7 +26,6 @@ Frontend for coworking space reservations and place/space management.
    npm install
    cp .env.example .env
    ```
-   Edit `.env`: `VITE_API_URL` should point at your API (e.g. `http://localhost:3000`). `VITE_AUTH_BEARER_TOKEN` is the token stored after login and sent as Bearer on API requests.
 
 2. **Start the dev server**
    ```bash
@@ -49,7 +48,10 @@ Two login flows with different roles:
 | Add place/space | No                  | Yes            |
 | Telemetry    | Hidden                 | Visible per space |
 
-Normal users only manage reservations. Admins can also create places and spaces and see the telemetry section. The app stores `auth_token` and `spaceflow_admin` in `localStorage`; the API client sends `Authorization: Bearer <token>` on requests.
+Normal users only manage reservations. 
+Admins can also create places and spaces and see the telemetry section. 
+
+The app stores `auth_token` and `spaceflow_admin` in `localStorage`; the API client sends `Authorization: Bearer <token>` on requests.
 
 
 ## Stack
