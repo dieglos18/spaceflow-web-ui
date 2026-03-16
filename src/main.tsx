@@ -9,7 +9,7 @@ import { BreadcrumbProvider } from './context/BreadcrumbContext';
 import { HomePage } from './pages/HomePage';
 import { DashboardPage } from './pages/DashboardPage';
 import { NotFoundPage } from './pages/NotFoundPage';
-import { PlaceDetailPage } from './pages/PlaceDetailPage';
+import { PlaceDetailPage } from './pages/PlaceDetail/PlaceDetailPage';
 import { AdminLoginPage } from './pages/AdminLoginPage';
 import { TelemetryDetailPage } from './pages/TelemetryDetailPage';
 import { TelemetryPage } from './pages/TelemetryPage';

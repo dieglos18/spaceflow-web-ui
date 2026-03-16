@@ -40,7 +40,7 @@ export function LoginDialog({ open, onClose, onSuccess }: LoginDialogProps) {
         aria-hidden
       />
       <div
-        className="relative w-full max-w-lg min-h-[420px] rounded-xl p-8 shadow-xl bg-(--app-card) text-(--app-text) flex flex-col"
+        className="relative w-full max-w-lg min-h-[360px] sm:min-h-[420px] rounded-xl p-5 sm:p-6 md:p-8 shadow-xl bg-(--app-card) text-(--app-text) flex flex-col"
       >
         <button
           type="button"
@@ -51,7 +51,7 @@ export function LoginDialog({ open, onClose, onSuccess }: LoginDialogProps) {
           <X className="w-5 h-5" />
         </button>
 
-        <h2 className="text-2xl font-semibold text-(--app-text) mb-2">
+        <h2 className="text-xl sm:text-2xl font-semibold text-(--app-text) mb-2">
           Welcome
         </h2>
         <div className="h-px bg-gray-200 dark:bg-gray-600 mb-8" aria-hidden />

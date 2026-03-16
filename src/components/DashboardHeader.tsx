@@ -33,14 +33,14 @@ export function DashboardHeader() {
   const isAdmin = typeof window !== 'undefined' && localStorage.getItem('spaceflow_admin') === 'true';
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-20 w-full flex items-center justify-between px-4 py-3 bg-(--app-card) text-(--app-text)">
+    <header className="fixed top-0 left-0 right-0 z-20 w-full flex items-center justify-between px-3 py-2 sm:px-4 sm:py-3 bg-(--app-card) text-(--app-text)">
       <div className="flex items-center gap-3">
         <img
           src="/icon-blue.svg"
           alt=""
-          className="h-8 w-8 object-contain"
+          className="h-7 w-7 sm:h-8 sm:w-8 object-contain"
         />
-        <h1 className="text-xl font-semibold text-(--app-text) flex items-baseline gap-1.5">
+        <h1 className="text-lg sm:text-xl font-semibold text-(--app-text) flex items-baseline gap-1.5">
           {APP_TITLE}
           {isAdmin && (
             <span className="text-xs font-normal opacity-80 text-(--app-text)">admin</span>
@@ -56,7 +56,7 @@ export function DashboardHeader() {
           aria-label="Open settings"
           aria-expanded={menuOpen}
         >
-          <Settings className="w-6 h-6" />
+          <Settings className="w-5 h-5 sm:w-6 sm:h-6" />
         </button>
 
         {menuOpen && (

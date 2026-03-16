@@ -11,7 +11,7 @@ interface BreadcrumbsProps {
 
 export function Breadcrumbs({ items }: BreadcrumbsProps) {
   return (
-    <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-sm text-(--app-text)">
+    <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs sm:text-sm text-(--app-text)">
       {items.map((item, index) => (
         <span key={index} className="flex items-center gap-2">
           {index > 0 && (
