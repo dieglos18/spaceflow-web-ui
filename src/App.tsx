@@ -4,7 +4,6 @@ import { Toaster, ToastBar, toast } from 'react-hot-toast';
 import { DashboardHeader } from '@/components/DashboardHeader';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { useBreadcrumbs } from '@/context/BreadcrumbContext';
-import './App.css';
 
 function App() {
   const { pathname } = useLocation();
