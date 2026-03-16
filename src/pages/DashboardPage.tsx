@@ -61,9 +61,9 @@ export function DashboardPage() {
   };
 
   return (
-    <div className="min-h-screen bg-(--app-bg) text-(--app-text) px-6">
+    <div className="min-h-screen bg-(--app-bg) text-(--app-text) px-3 sm:px-4 md:px-6">
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-2xl font-semibold text-(--app-text) mt-4 mb-6">
+        <h1 className="text-xl sm:text-2xl font-semibold text-(--app-text) mt-3 mb-4 sm:mt-4 sm:mb-6">
           Places
         </h1>
 
@@ -76,20 +76,20 @@ export function DashboardPage() {
         {isLoading ? (
           <p className="text-(--app-text) opacity-80">Loading...</p>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
             {/* Place cards */}
             {places.map((place) => (
               <Link
                 key={place.id}
                 to={`/places/${place.id}`}
-                className="block p-6 rounded-xl bg-(--app-card) border border-gray-400 dark:border-gray-500 shadow-sm hover:shadow-md hover:border-primary transition-all cursor-pointer text-(--app-text)"
+                className="block p-4 sm:p-6 rounded-xl bg-(--app-card) border border-gray-400 dark:border-gray-500 shadow-sm hover:shadow-md hover:border-primary transition-all cursor-pointer text-(--app-text)"
               >
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-16 h-16 rounded-full bg-primary/15 flex items-center justify-center mb-4">
-                    <Building2 className="w-8 h-8 text-primary" strokeWidth={1} />
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-primary/15 flex items-center justify-center mb-3 sm:mb-4">
+                    <Building2 className="w-6 h-6 sm:w-8 sm:h-8 text-primary" strokeWidth={1} />
                   </div>
-                  <h2 className="text-lg font-semibold text-(--app-text)">{place.name}</h2>
-                  <div className="flex items-center justify-center gap-1 mt-2 text-sm text-(--app-text) opacity-80">
+                  <h2 className="text-base sm:text-lg font-semibold text-(--app-text)">{place.name}</h2>
+                  <div className="flex items-center justify-center gap-1 mt-2 text-xs sm:text-sm text-(--app-text) opacity-80">
                     <MapPin className="w-4 h-4 shrink-0" />
                     <span className="truncate">{place.location}</span>
                   </div>
@@ -100,13 +100,13 @@ export function DashboardPage() {
               <button
                 type="button"
                 onClick={() => setAddPlaceOpen(true)}
-                className="flex flex-col items-center justify-center min-h-[200px] p-6 rounded-xl border-2 border-dashed border-gray-400 dark:border-gray-500 bg-(--app-card) hover:border-primary hover:opacity-90 transition-all cursor-pointer text-(--app-text)"
+                className="flex flex-col items-center justify-center min-h-[160px] sm:min-h-[200px] p-4 sm:p-6 rounded-xl border-2 border-dashed border-gray-400 dark:border-gray-500 bg-(--app-card) hover:border-primary hover:opacity-90 transition-all cursor-pointer text-(--app-text)"
               >
-                <div className="w-16 h-16 rounded-full bg-primary/15 flex items-center justify-center mb-4">
-                  <Plus className="w-8 h-8 text-primary" strokeWidth={1} />
+                <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-primary/15 flex items-center justify-center mb-3 sm:mb-4">
+                  <Plus className="w-6 h-6 sm:w-8 sm:h-8 text-primary" strokeWidth={1} />
                 </div>
                 <span className="font-semibold text-(--app-text)">Add Place</span>
-                <span className="text-sm text-(--app-text) opacity-80 mt-1">Create a new place</span>
+                <span className="text-xs sm:text-sm text-(--app-text) opacity-80 mt-1">Create a new place</span>
               </button>
             )}
           </div>
@@ -115,10 +115,10 @@ export function DashboardPage() {
 
       {/* Add place modal (admin only) */}
       {isAdmin && addPlaceOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70">
-          <div className="bg-(--app-card) rounded-xl p-6 max-w-md w-full border border-gray-400 dark:border-gray-500 relative">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/70">
+          <div className="bg-(--app-card) rounded-xl p-4 sm:p-6 max-w-md w-full border border-gray-400 dark:border-gray-500 relative">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-xl font-semibold">Add Place</h2>
+              <h2 className="text-lg sm:text-xl font-semibold">Add Place</h2>
               <button
                 type="button"
                 onClick={() => {
@@ -131,7 +131,7 @@ export function DashboardPage() {
                 <X className="w-5 h-5" />
               </button>
             </div>
-            <form onSubmit={handleSubmitAddPlace} className="space-y-4">
+            <form onSubmit={handleSubmitAddPlace} className="space-y-3 sm:space-y-4">
               <div>
                 <label className="block text-sm font-medium mb-1">Name</label>
                 <input

@@ -25,7 +25,7 @@ export function AdminLoginPage() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-8 bg-(--app-bg)">
-      <div className="w-full max-w-md rounded-xl p-8 shadow-xl bg-(--app-card) text-(--app-text)">
+      <div className="w-full max-w-md rounded-xl p-5 sm:p-6 md:p-8 shadow-xl bg-(--app-card) text-(--app-text)">
         <div className="flex justify-center mb-6">
           <img
             src="/icon-blue.svg"
@@ -33,7 +33,7 @@ export function AdminLoginPage() {
             className="w-16 h-16 object-contain"
           />
         </div>
-        <h2 className="text-2xl font-semibold text-(--app-text) mb-2 text-center">
+        <h2 className="text-xl sm:text-2xl font-semibold text-(--app-text) mb-2 text-center">
           Admin Login
         </h2>
         <div className="h-px bg-gray-200 dark:bg-gray-600 mb-6" aria-hidden />
