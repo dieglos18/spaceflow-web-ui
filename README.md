@@ -7,9 +7,8 @@ Frontend for coworking space reservations and place/space management.
 ### Option A: Docker (same network as backend)
 
 1. **Start the backend first** (creates `spaceflow-network`):
-   ```bash
-   cd /path/to/backend && docker compose up -d
-   ```
+
+[Backend Repo README.md](https://github.com/dieglos18/spaceflow-api/blob/main/README.md)
 
 2. **Build and run**
    ```bash
