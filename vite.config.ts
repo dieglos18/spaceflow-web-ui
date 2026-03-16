@@ -8,6 +8,9 @@ const __dirname = fileURLToPath(new URL('.', import.meta.url))
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  server: {
+    port: 8080,
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),
