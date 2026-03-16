@@ -11,8 +11,6 @@ import { DashboardPage } from './pages/DashboardPage';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { PlaceDetailPage } from './pages/PlaceDetail/PlaceDetailPage';
 import { AdminLoginPage } from './pages/AdminLoginPage';
-import { TelemetryDetailPage } from './pages/TelemetryDetailPage';
-import { TelemetryPage } from './pages/TelemetryPage';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -29,8 +27,6 @@ const router = createBrowserRouter([
       { path: 'dashboard', element: <DashboardPage /> },
       { path: 'admin-login', element: <AdminLoginPage /> },
       { path: 'places/:id', element: <PlaceDetailPage /> },
-      { path: 'telemetry', element: <TelemetryPage /> },
-      { path: 'telemetry/:id', element: <TelemetryDetailPage /> },
       { path: '*', element: <NotFoundPage /> },
     ],
   },
