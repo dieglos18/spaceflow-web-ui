@@ -27,7 +27,12 @@ Frontend for coworking space reservations and place/space management.
    cp .env.example .env
    ```
 
-2. **Start the dev server**
+3. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Start the dev server**
    ```bash
    npm run dev
    ```
