@@ -1,6 +1,19 @@
 # SpaceFlow Web UI
 
-Frontend for coworking space reservations and place/space management (React, Vite, Tailwind).
+Frontend for coworking space reservations and place/space management.
+
+## Stack
+
+- **React 18** + **TypeScript** — UI and type safety
+- **Vite** — Build tool and dev server
+- **Tailwind CSS v4** — Styling (via `@tailwindcss/vite`)
+- **React Router v7** — Client-side routing
+- **TanStack Query (React Query)** — Server state and caching
+- **Axios** — HTTP client for the API
+- **Lucide React** — Icons 
+- **react-hot-toast** — Toasts
+- **react-tooltip** — Tooltips
+- **ESLint** — Linting
 
 ## Run the project
 
