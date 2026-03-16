@@ -58,8 +58,8 @@ function App() {
       </Toaster>
       {showDashboardHeader && <DashboardHeader />}
       {showDashboardHeader && breadcrumbItems.length > 0 && (
-        <div className="fixed top-14 left-0 right-0 z-10 bg-(--app-bg) pt-4 pb-2">
-          <div className="max-w-7xl mx-auto px-6 flex items-center justify-start">
+        <div className="fixed top-13 md:top-14 left-0 right-0 z-10 bg-(--app-bg) pt-2 md:pt-4 pb-2">
+          <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 flex items-center justify-start">
             <Breadcrumbs items={breadcrumbItems} />
           </div>
         </div>
